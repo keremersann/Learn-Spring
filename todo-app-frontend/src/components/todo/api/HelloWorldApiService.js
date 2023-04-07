@@ -17,3 +17,11 @@ export function retrieveHelloWorldPathVariable(username) {
     },
   });
 }
+
+export function executeBasicAuthenticationService(token) {
+  return apiClient.get("/basic-auth", {
+    headers: {
+      Authorization: token,
+    },
+  });
+}
