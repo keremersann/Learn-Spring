@@ -19,6 +19,7 @@ public class BasicAuthenticationSecurityConfiguration {
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+        http.headers().frameOptions().disable();
         return http.authorizeHttpRequests(
                     auth -> auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
                             .anyRequest().authenticated())

@@ -1,4 +1,4 @@
-package com.kerem.restfulwebservices.todoapp.helloworld;
+package com.kerem.restfulwebservices.helloworld;
 
 public class HelloWorldBean {
 	private String message;

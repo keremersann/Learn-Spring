@@ -1,4 +1,4 @@
-package com.kerem.restfulwebservices.todoapp.helloworld;
+package com.kerem.restfulwebservices.helloworld;
 
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
