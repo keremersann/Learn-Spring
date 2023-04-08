@@ -89,9 +89,9 @@ export default function ListTodos() {
         </tbody>
       </table>
 
-      <btn className="btn btn-success" onClick={() => addNewTodo()}>
+      <button className="btn btn-success" onClick={() => addNewTodo()}>
         Add New Todo
-      </btn>
+      </button>
     </div>
   );
 }
