@@ -1,10 +1,17 @@
 package com.kerem.restfulwebservices.todoapp.todo;
 
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.Id;
+
 import java.time.LocalDate;
 import java.util.Date;
 
+@Entity
 public class Todo {
-	
+
+	@Id
+	@GeneratedValue
 	private int id;
 	private String username;
 	private String description;
