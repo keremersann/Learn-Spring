@@ -1,4 +1,4 @@
-package com.kerem.learnspringsecurity.security;
+package com.kerem.learnspringsecurity.security.basic;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -11,13 +11,14 @@ import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
 import org.springframework.security.provisioning.JdbcUserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
 
 import javax.sql.DataSource;
 
-@Configuration
+//@Configuration
 public class BasicAuthSecurityConfiguration {
 
     @Bean
@@ -57,12 +58,14 @@ public class BasicAuthSecurityConfiguration {
     @Bean
     public UserDetailsService userDetailsService(DataSource dataSource){
         var user = User.withUsername("kerem")
-                .password("{noop}123")
+                .password("123")
+                .passwordEncoder(str -> bCryptPasswordEncoder().encode(str))
                 .roles("USER")
                 .build();
 
         var admin = User.withUsername("admin")
                 .password("{noop}123")
+                .passwordEncoder(str -> bCryptPasswordEncoder().encode(str))
                 .roles("ADMIN")
                 .build();
 
@@ -70,6 +73,11 @@ public class BasicAuthSecurityConfiguration {
         jdbcUserDetailsManager.createUser(user);
         jdbcUserDetailsManager.createUser(admin);
         return jdbcUserDetailsManager;
+    }
+
+    @Bean
+    public BCryptPasswordEncoder bCryptPasswordEncoder(){
+        return new BCryptPasswordEncoder();
     }
 
 
