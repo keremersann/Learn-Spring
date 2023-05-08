@@ -34,7 +34,7 @@ import java.security.interfaces.RSAPublicKey;
 import java.util.List;
 import java.util.UUID;
 
-@Configuration
+//@Configuration
 public class JWTSecurityConfiguration {
 
     @Bean
@@ -115,6 +115,8 @@ public class JWTSecurityConfiguration {
             throw new RuntimeException(e);
         }
     }
+
+    // 5) Jwt Encoder
 
     @Bean
     public JwtEncoder jwtEncoder(JWKSource<SecurityContext> context){
