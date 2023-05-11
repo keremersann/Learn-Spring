@@ -13,11 +13,11 @@ public class LoggingAspect {
     // Pointcut - when?
     // execution(* PACKAGE.*.*(..))
     // * com/kerem/learnspringaop/business.*.*(..)
-    @Before("execution (* com.kerem.learnspringaop.*.*.*(..))")
+    @Before("com.kerem.learnspringaop.aspect.CommonPointcutConfig.allServicesConfigWithBean()")
     public void logMethodCallBefore(JoinPoint joinPoint){
         logger.info("Before Aspect - Method is called {} - with args {}", joinPoint, joinPoint.getArgs());
     }
-    @After("execution (* com.kerem.learnspringaop.*.*.*(..))")
+    @After("com.kerem.learnspringaop.aspect.CommonPointcutConfig.businessPackageConfig()")
     public void logMethodCallAfter(JoinPoint joinPoint){
         logger.info("After Aspect - Method has executed {} - with args {}", joinPoint, joinPoint.getArgs());
     }
@@ -27,7 +27,7 @@ public class LoggingAspect {
         logger.info("After Throwing Aspect - Method has executed {} - with args {} - exception {}", joinPoint, joinPoint.getArgs()
         , exception.getMessage());
     }
-    @AfterReturning(pointcut = "execution (* com.kerem.learnspringaop.*.*.*(..))",
+    @AfterReturning(pointcut = "com.kerem.learnspringaop.aspect.CommonPointcutConfig.repositoryPackageConfig()",
             returning = "resultValue")
     public void logMethodCallAfterReturning(JoinPoint joinPoint, Object resultValue){
         logger.info("After Returning Aspect - Method has executed {} - with args {} - Result value: {}", joinPoint, joinPoint.getArgs()
