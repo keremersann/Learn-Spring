@@ -11,8 +11,9 @@ public class CommonPointcutConfig {
     public void businessPackageConfig(){}
     @Pointcut("execution (* com.kerem.learnspringaop.repository.*.*(..))")
     public void repositoryPackageConfig(){}
-
     @Pointcut("bean(*Service*)")
     public void allServicesConfigWithBean(){}
+    @Pointcut("@annotation(com.kerem.learnspringaop.annotations.TrackTime)")
+    public void trackTimeConfig(){}
 
 }

@@ -1,11 +1,13 @@
 package com.kerem.learnspringaop.repository;
 
+import com.kerem.learnspringaop.annotations.TrackTime;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public class DataService2 {
 
-    public int[] retrieveNumbers(){
+    @TrackTime
+    public int[] retrieveNumbers2(){
         try {
             Thread.sleep(10);
         } catch (InterruptedException e) {

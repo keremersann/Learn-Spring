@@ -1,5 +1,6 @@
 package com.kerem.learnspringaop.business;
 
+import com.kerem.learnspringaop.annotations.TrackTime;
 import com.kerem.learnspringaop.repository.DataService;
 import org.springframework.stereotype.Service;
 
@@ -12,6 +13,7 @@ public class BusinessService {
         this.dataService = dataService;
     }
 
+    @TrackTime
     public int getTheMaximumNumber(){
         int[] numbers = this.dataService.retrieveNumbers();
         try {
