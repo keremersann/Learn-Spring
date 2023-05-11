@@ -1,4 +1,4 @@
-package com.kerem.learnspringaop.aspect;
+package com.kerem.learnspringaop.config;
 
 import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.context.annotation.Bean;

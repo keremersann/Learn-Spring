@@ -15,7 +15,7 @@ public class PerformanceTrackingAspect {
     private Logger logger = LoggerFactory.getLogger(getClass());
 
     //@Around("execution (* com.kerem.learnspringaop.*.*.*(..))")
-    @Around("com.kerem.learnspringaop.aspect.CommonPointcutConfig.trackTimeConfig()")
+    @Around("com.kerem.learnspringaop.config.CommonPointcutConfig.trackTimeConfig()")
     public Object calculateExecutionTime(ProceedingJoinPoint proceedingJoinPoint) throws Throwable {
         long startTime = System.currentTimeMillis();
         Object returnedValue = proceedingJoinPoint.proceed();
